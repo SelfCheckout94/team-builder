@@ -22,16 +22,16 @@ function App() {
       email: formValues.email.trim(),
       role: formValues.role,
     };
-    if (!teamMembers.name || !teamMembers.email || !teamMembers.role) {
-      return;
-    }
+    setTeamMembers(teamMembers.concat(newTeamMember));
+    setFormValues(initialFormValues);
   };
   return (
     <div className="container">
       <h3>Submit your information to be added to the roster.</h3>
       <Form values={formValues} update={updateForm} submit={submitForm} />
       {teamMembers.map((member) => {
-        return <TeamMember key="member.id" details={member} />;
+        console.log(member);
+        return <TeamMember key={member.id} details={member} />;
       })}
     </div>
   );

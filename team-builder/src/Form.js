@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Form(props) {
   const { values, update, submit } = props;
@@ -14,7 +14,7 @@ export default function Form(props) {
   };
 
   return (
-    <form className="form container">
+    <form className="form container" onSubmit={onSubmit}>
       <label>
         Name
         <input
@@ -39,12 +39,12 @@ export default function Form(props) {
         Role
         <select name="role" value={values.role} onChange={onChange}>
           <option value="">--Select Role--</option>
-          <option value="Senior Dev">Senior Developer</option>
-          <option value="Frontend">Front End Developer</option>
-          <option value="Backend">Back End Developer</option>
+          <option value="Senior Developer">Senior Developer</option>
+          <option value="Front End Developer">Front End Developer</option>
+          <option value="Back End Developer">Back End Developer</option>
           <option value="Designer">Designer</option>
         </select>
-        <div>
+        <div className="submit">
           <button disabled={!values.name || !values.email || !values.role}>
             Submit
           </button>
