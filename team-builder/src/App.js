@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-import Form from "./Form";
-import TeamMember from "./TeamMember";
+import Form from "./components/Form";
+import TeamMember from "./components/TeamMember";
+import { v4 as uuidv4 } from "uuid";
 
 const initialFormValues = {
   name: "",
@@ -31,7 +32,7 @@ function App() {
       <Form values={formValues} update={updateForm} submit={submitForm} />
       {teamMembers.map((member) => {
         console.log(member);
-        return <TeamMember key={member.id} details={member} />;
+        return <TeamMember key={uuidv4()} details={member} />;
       })}
     </div>
   );
